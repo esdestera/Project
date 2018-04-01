@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Calendar";
+}
+
+<h2>Calendar</h2>
+@DateTime.Now.ToString("yyyy-MM-dd")
+@DateTime.Now.DayOfWeek
+<br />
+@{ 
+    DateTime first = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+    @first.DayOfWeek
+}
+
+<table>
+    <tr>
+        <th> Monday </th>
+        <th> Tuesday </th>
+        <th> Wednesday </th>
+        <th> Thursday </th>
+        <th> Friday </th>
+        <th> Saturday </th>
+        <th> Sunday </th>
+    </tr>
+    
+    
+</table>
+
