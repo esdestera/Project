@@ -1,31 +1,36 @@
 ﻿<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-* {
-    box-sizing: border-box;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-/* Create two unequal columns that floats next to each other */
-.column {
-    float: left;
-    padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
-}
+    /* Create two unequal columns that floats next to each other */
+    .column {
+        float: left;
+        padding: 10px;
+        height: 300px; /* Should be removed. Only for demonstration */
+    }
 
-.left {
-  width: 15%;
-}
+    .left {
+        width: 15%;
+    }
 
-.right {
-  width: 85%;
-}
+    .right {
+        width: 85%;
+        height: auto;
+    }
 
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .dropdown-menu {
+        background: yellow;
+    }
 </style>
 <html>
 <head>
@@ -39,27 +44,23 @@
     <div class="row">
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
                 <div class="navbar-collapse collapse">
-
                     @Html.Partial("_LoginPartial")
                 </div>
             </div>
         </div>
-        </div>
         <div class="column left" style="background-color:#aaa;">
             <ul class="nav  navbar-fixed-side navbar-fixed-side-left">
                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("Profile", "Profile", "Home")</li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Payments <span class="caret"></span></a>
+                    <a class="dropdown-toggle" aria-expanded="True" href="#" data-toggle="dropdown">Profile <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("MyProfile", "MyProfile", "Profile", null, new { id = "item 1" })</li>
+                        <li>@Html.ActionLink("MyAccounts", "MyAccounts", "Profile", null, new { id = "item 2" })</li>
+                    </ul>
+                </li>
+                <li class="dropdown -open">
+                    <a href="#" class="dropdown-toggle" aria-expanded="true" data-toggle="dropdown">Payments <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li>@Html.ActionLink("Payments to me", "PaymentsToMe", "Payments", null, new { id = "item 1" })</li>
                         <li>@Html.ActionLink("Payments to others", "PaymentsToOthers", "Payments", null, new { id = "item 2" })</li>
@@ -67,7 +68,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Services <span class="caret"></span></a>
+                    <a class="dropdown-toggle" aria-expanded="True" href="#" data-toggle="dropdown">Services <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li>@Html.ActionLink("Bills", "Bills", "Services", null, new { id = "item 1" })</li>
                         <li>@Html.ActionLink("Taxes", "Taxes", "Services", null, new { id = "item 2" })</li>
@@ -75,18 +76,19 @@
                         <li>@Html.ActionLink("MyServices", "MyServices", "Services", null, new { id = "item 4" })</li>
                     </ul>
                 </li>
+                <li>@Html.ActionLink("Transactions history", "TransactionHistory", "Home")</li>
+                <li>@Html.ActionLink("Customer services", "CustomerServices", "Home")</li>
             </ul>
         </div>
         <div class="column right" style="background-color:#bbb;">
 
-            <div class="container body-content">
+            <div class="container body-content" span="column right">
                 @RenderBody()
-              
-
             </div>
         </div>
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", required: false)
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -64,12 +64,11 @@ namespace WebApplication2.Models
 
     public class RegisterViewModel
     {
-        [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Email required")]
+        [Display(Name = "Email address")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Password required")]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
@@ -79,6 +78,19 @@ namespace WebApplication2.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Username required")]
+        [Display(Name = "Username")]
+        public string UserName { get; set; }
+
+        [Display(Name = "PhoneNumber")]
+        public string PhoneNumber { get; set; }
+
+        [Display(Name = "First name")]
+        public string LastName { get; set; }
+
+        [Display(Name = "Second name")]
+        public string FirstName { get; set; }
     }
 
     public class ResetPasswordViewModel

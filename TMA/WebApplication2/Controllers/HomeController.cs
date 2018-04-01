@@ -20,19 +20,12 @@ namespace WebApplication2.Controllers
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-        public ActionResult Profile()
+        public ActionResult TransactionHistory()
         {
             return View();
         }
 
-        public ActionResult Payments()
+        public ActionResult CustomerServices()
         {
             return View();
         }
