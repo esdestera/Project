@@ -56,7 +56,7 @@
         </div>
         <div class="column left" style="background-color:#aaa;">
             <ul class="nav  navbar-fixed-side navbar-fixed-side-left">
-                <li>@Html.ActionLink("Index", "Index", "Home")</li>
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
                 <li>@Html.ActionLink("Profile", "Profile", "Home")</li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Payments <span class="caret"></span></a>
@@ -64,6 +64,15 @@
                         <li>@Html.ActionLink("Payments to me", "PaymentsToMe", "Payments", null, new { id = "item 1" })</li>
                         <li>@Html.ActionLink("Payments to others", "PaymentsToOthers", "Payments", null, new { id = "item 2" })</li>
                         <li>@Html.ActionLink("MyPayments", "MyPayments", "Payments", null, new { id = "item 3" })</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Services <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("Bills", "Bills", "Services", null, new { id = "item 1" })</li>
+                        <li>@Html.ActionLink("Taxes", "Taxes", "Services", null, new { id = "item 2" })</li>
+                        <li>@Html.ActionLink("Phone credit charge", "PhoneCreditCharge", "Services", null, new { id = "item 3" })</li>
+                        <li>@Html.ActionLink("MyServices", "MyServices", "Services", null, new { id = "item 4" })</li>
                     </ul>
                 </li>
             </ul>
