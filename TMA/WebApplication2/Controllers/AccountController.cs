@@ -481,5 +481,10 @@ namespace WebApplication2.Controllers
             }
         }
         #endregion
+
+        public ActionResult LoginRole()
+        {
+            return View();
+        }
     }
 }
