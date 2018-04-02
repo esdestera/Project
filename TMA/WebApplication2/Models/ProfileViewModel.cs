@@ -21,26 +21,4 @@ namespace WebApplication2.Models
 
         [Display(Name = "PhoneNumber")] public string PhoneNumber { get; set; }
     }
-
-    public class AccountsViewModel
-    {
-        [Display(Name = "Accounts")]
-        public List<Account> Accounts { get; set; }
-
-        [Display(Name = "AccountIBAN")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "IBAN required")]
-        public string AccountIBAN { get; set; }
-
-        
-        [Display(Name = "Currency")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Currency required")]
-        public string Currency { get; set; }
-
-        [Display(Name = "Bank name")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Bank name required")]
-        public string BankName { get; set; }
-
-        [Display(Name = "Card limit")]
-        public string CardLimit { get; set; }
-    }
 }
