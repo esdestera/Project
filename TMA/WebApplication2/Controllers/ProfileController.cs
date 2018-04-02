@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using Microsoft.ApplicationInsights.Extensibility.Implementation;
 
 namespace WebApplication2.Controllers
 {
@@ -14,16 +13,5 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
-
-        public ActionResult ViewAccounts()
-        {
-            return View();
-        }
-
-        public ActionResult NewAccount()
-        {
-            return View();
-        }
-        
     }
 }

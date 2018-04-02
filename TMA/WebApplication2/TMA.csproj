@@ -190,7 +190,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PaymentsController.cs" />
@@ -199,7 +198,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -209,6 +207,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-journal.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -268,7 +267,6 @@
     <Content Include="Views\Payments\PaymentsToMe.cshtml" />
     <Content Include="Views\Home\TransactionHistory.cshtml" />
     <Content Include="Views\Home\CustomerServices.cshtml" />
-    <Content Include="Views\Admin\Login.cshtml" />
     <None Include="Views\Payments\PaymentsToOthers.cshtml" />
     <Content Include="Views\Payments\MyPayments.cshtml" />
     <Content Include="Views\Services\Bills.cshtml" />
@@ -277,8 +275,6 @@
     <Content Include="Views\Services\MyServices.cshtml" />
     <Content Include="Views\Profile\MyProfile.cshtml" />
     <Content Include="Views\Profile\MyAccounts.cshtml" />
-    <Content Include="Views\Profile\ViewAccounts.cshtml" />
-    <Content Include="Views\Profile\NewAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
