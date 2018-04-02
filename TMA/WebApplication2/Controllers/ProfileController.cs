@@ -8,8 +8,20 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
+        /*
+        public ActionResult Accounts()
+        {
+            return View();
+        }
 
         public ActionResult MyAccounts()
+        {
+            return View();
+
+        }
+        
+        */
+        public ActionResult NewAccount()
         {
             return View();
         }

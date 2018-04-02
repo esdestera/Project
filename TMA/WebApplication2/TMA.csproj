@@ -275,6 +275,8 @@
     <Content Include="Views\Services\MyServices.cshtml" />
     <Content Include="Views\Profile\MyProfile.cshtml" />
     <Content Include="Views\Profile\MyAccounts.cshtml" />
+    <Content Include="Views\Profile\NewAccount.cshtml" />
+    <Content Include="Views\Profile\Accounts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

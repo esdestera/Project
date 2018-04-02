@@ -21,4 +21,39 @@ namespace WebApplication2.Models
 
         [Display(Name = "PhoneNumber")] public string PhoneNumber { get; set; }
     }
+
+    public class MyAccounts
+    {
+        [Display(Name = "Bank name")]
+        public int BankName { get; set; }
+
+        [Display(Name = "IBAN")]
+        public string IBAN { get; set; }
+
+        [Display(Name = "Card limit")]
+        public int CardLimit { get; set; }
+
+        [Display(Name = "Currency")]
+        public string Currency { get; set; }
+
+    }
+
+    public class NewAccount
+    {
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Bank nme is rquired.")]
+        [Display(Name = "Bank name")]
+        public int BankName { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "IBAN is rquired.")]
+        [Display(Name = "IBAN")]
+        public string IBAN { get; set; }
+
+        [Display(Name = "Card limit")]
+        public int CardLimit { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Currency is rquired.")]
+        [Display(Name = "Currency")]
+        public string Currency { get; set; }
+
+    }
 }
