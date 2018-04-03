@@ -1,1 +1,83 @@
 ﻿
+@{
+    ViewBag.Title = "MyPayments";
+}
+
+<style>
+    table, th, td {
+        border: 1px;
+        padding: 10px;
+    }
+
+    table {
+        border-spacing: 15px;
+    }
+
+    .a {
+        height: 27px;
+        width: 160px
+    }
+</style>
+
+@{
+    if (IsPost)
+    {
+        string Payments = Request.Form["Payments"];
+
+        <text>
+            You entered: <br />
+            Phone number: @Payments <br />
+        </text>
+    }
+}
+
+<div align="center">
+    <h2>MyPayments</h2>
+    <form method="post" class="b">
+        <fieldset>
+            <table>
+                <tr>
+                    <div>
+                        <td><label for="Payments">Your recent payments:</label></td>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <br></br>
+                        <td><label for="Payments">To: @Html.ActionLink("account1", "PaymentsToOthers", "Payments")</label></td>
+                        <td><label for="Payments">USD</label></td>
+                    </div>
+                </tr>
+
+                <tr>
+                    <div>
+                        <td><label for="Payments">To: @Html.ActionLink("account2", "PaymentsToMe", "Payments")</label></td>
+                        <td><label for="Payments">USD </label></td>
+                    </div>
+                </tr>
+
+                <tr>
+                    <div>
+                        <td><label for="Payments">To: @Html.ActionLink("account3", "PaymentsToMe", "Payments")</label></td>
+                        <td><label for="Payments">EURO</label></td>
+                    </div>
+                </tr>
+
+                <tr>
+                    <div>
+                        <td><label for="Payments">To: @Html.ActionLink("account4", "PaymentsToMe", "Payments")</label></td>
+                        <td><label for="Payments">EURO</label></td>
+                    </div>
+                </tr>
+
+                <tr>
+                    <div>
+                        <td><label for="Payments">To: @Html.ActionLink("account5", "PaymentsToOthers", "Payments")</label></td>
+                        <td><label for="Payments">RON</label></td>
+                    </div>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+</div>
+

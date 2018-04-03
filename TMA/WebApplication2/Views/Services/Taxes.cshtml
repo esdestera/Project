@@ -1,1 +1,105 @@
-﻿
+﻿@model WebApplication2.Models.ProfileViewModel
+@{
+    ViewBag.Title = "Taxes";
+}
+
+<style>
+    table, th, td {
+        border: 1px;
+        padding: 10px;
+    }
+
+    table {
+        border-spacing: 15px;
+    }
+
+    .a {
+        height: 27px;
+        width: 160px
+    }
+</style>
+
+@{
+    if (IsPost)
+    {
+        string Name = Request.Form["tax"];
+        string IBAN = Request.Form["ISBN"];
+        string From = Request.Form["From"];
+        string Amount = Request.Form["Amount"];
+        string Details = Request.Form["Details"];
+
+        <text>
+            You entered: <br />
+            Type of the tax: @Name <br />
+            IBAN: @IBAN <br />
+            From:@From <br />
+            The amount of money:@Amount <br />
+            Details:@Details <br />
+        </text>
+    }
+}
+
+<div align="center">
+    <h2>Taxes</h2>
+    <form method="post" class="b">
+        <fieldset>
+            <table>
+                <tr>
+                    <div>
+                        <td><label for="Bill">Type of the tax:</label></td>
+                        <td><input type="text" name="Tax" value="" /></td>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <td><label for="IBAN">IBAN:</label></td>
+                        <td><input type="text" name="IBAN" value="" /></td>
+                    </div>
+                </tr>
+
+                <tr>
+                    <div>
+
+                        <td><label for="From">From:</label></td>
+                        <td>
+                            <select id="Currency" name="Currency" class="a">
+                                <option value="0">Account</option>
+                            </select>
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <td><label for="Amount">The amount of money:</label></td>
+                        <td><input type="text" name="Amount" value="" /></td>
+                        <td>
+                            <label for="Bill">Currency:</label>
+                            <select id="Currency" name="Currency">
+                                <option value="0">RON</option>
+                                <option value="1">USD</option>
+                                <option value="2">EURO</option>
+                            </select>
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <td><label for="Details">Details:</label></td>
+                        <td><input type="text" Name="Details" value="" /></td>
+                    </div>
+                </tr>
+            </table>
+            <div>
+                <td><input type="checkbox" checked> Do you want to save this transaction to MyServices ? <br></td>
+            </div>
+            <div>
+                <label>&nbsp;</label>
+                <br></br>
+                <input type="button" value="Cancel" onclick="window.location = 'http://localhost:51201/Home/Index'" class="cancel_button">
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <input type="submit" value="Continue" class="submit" />
+            </div>
+        </fieldset>
+    </form>
+</div>
+

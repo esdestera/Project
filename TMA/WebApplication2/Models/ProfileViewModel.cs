@@ -21,4 +21,16 @@ namespace WebApplication2.Models
 
         [Display(Name = "PhoneNumber")] public string PhoneNumber { get; set; }
     }
+
+    public class NewAccountViewModel
+    {
+        [Required(AllowEmptyStrings = false, ErrorMessage = "IBAN required")]
+        [Display(Name = "IBAN")] public string IBAN { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Currency required")]
+        [Display(Name = "Currency")] public string Currency { get; set; }
+
+        [Display(Name = "Card limit")] public double  CardLimit { get; set; }
+
+    }
 }

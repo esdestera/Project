@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
     * {
         box-sizing: border-box;
     }
@@ -55,16 +56,16 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle" aria-expanded="True" href="#" data-toggle="dropdown">Profile <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li>@Html.ActionLink("MyProfile", "MyProfile", "Profile", null, new { id = "item 1" })</li>
-                        <li>@Html.ActionLink("MyAccounts", "MyAccounts", "Profile", null, new { id = "item 2" })</li>
+                        <li>@Html.ActionLink("My profile", "MyProfile", "Profile", null, new { id = "item 1" })</li>
+                        <li>@Html.ActionLink("New account", "NewAccount", "Profile", null, new { id = "item 2" })</li>
                     </ul>
                 </li>
                 <li class="dropdown -open">
-                    <a href="#" class="dropdown-toggle" aria-expanded="true" data-toggle="dropdown">Payments <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" aria-expanded="true" data-toggle="dropdown">Transfer <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li>@Html.ActionLink("Payments to me", "PaymentsToMe", "Payments", null, new { id = "item 1" })</li>
                         <li>@Html.ActionLink("Payments to others", "PaymentsToOthers", "Payments", null, new { id = "item 2" })</li>
-                        <li>@Html.ActionLink("MyPayments", "MyPayments", "Payments", null, new { id = "item 3" })</li>
+                        <li>@Html.ActionLink("My payments", "MyPayments", "Payments", null, new { id = "item 3" })</li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -74,14 +75,20 @@
                         <li>@Html.ActionLink("Taxes", "Taxes", "Services", null, new { id = "item 2" })</li>
                         <li>@Html.ActionLink("Phone credit charge", "PhoneCreditCharge", "Services", null, new { id = "item 3" })</li>
                         <li>@Html.ActionLink("MyServices", "MyServices", "Services", null, new { id = "item 4" })</li>
+
                     </ul>
                 </li>
                 <li>@Html.ActionLink("Transactions history", "TransactionHistory", "Home")</li>
-                <li>@Html.ActionLink("Customer services", "CustomerServices", "Home")</li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" aria-expanded="True" href="#" data-toggle="dropdown">Customer service <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("FAQ", "FAQ", "CustomerServices", null, new { id = "item 1" })</li>
+                        <li>@Html.ActionLink("Map", "Map", "CustomerServices", null, new { id = "item 2" })</li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <div class="column right" style="background-color:#bbb;">
-
             <div class="container body-content" span="column right">
                 @RenderBody()
             </div>

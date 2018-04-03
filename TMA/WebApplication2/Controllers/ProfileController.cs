@@ -9,7 +9,7 @@ namespace WebApplication2.Controllers
             return View();
         }
 
-        public ActionResult MyAccounts()
+        public ActionResult NewAccount()
         {
             return View();
         }
