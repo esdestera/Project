@@ -46,59 +46,59 @@
 
     }
 }
-<div align="center">
-    <h2>Payments to me </h2>
-    <form method="post">
-        <fieldset>
-            <table>
-                <tr>
-                    <td><label for="From">From</label></td>
-                    <td>
-                        <input type="text" name="From"
-                               value="@Request.Form["From"]" />
-                    </td>
-                </tr>
-                <tr>
-                    <div>
-                        <td><label for="To" name="To">To </label></td>
-                        <td>
-                            <select id="accounts" name="accountList" class="a">
-                                <option value="0">account1</option>
-                                <option value="1">account2</option>
-                                <option value="2">account3</option>
-                            </select>
-                        </td>
-                    </div>
-                </tr>
+                           <div align="center">
+                               <h2>Payments to me </h2>
+                               <form method="post">
+                                   <fieldset>
+                                       <table>
+                                           <tr>
+                                               <td><label for="From">From</label></td>
+                                               <td>
+                                                   <input type="text" name="From"
+                                                          value="@Request.Form["From"]" />
+                                               </td>
+                                           </tr>
+                                           <tr>
+                                               <div>
+                                                   <td><label for="To" name="To">To </label></td>
+                                                   <td>
+                                                       <select id="accounts" name="accountList" class="a">
+                                                           <option value="0">account1</option>
+                                                           <option value="1">account2</option>
+                                                           <option value="2">account3</option>
+                                                       </select>
+                                                   </td>
+                                               </div>
+                                           </tr>
 
-                <tr>
-                    <td>
-                        <label for="Ammount">The amount of money </label>
-                    </td>
-                    <td>
-                        <input type="text" name="amount"
-                               value="@Request.Form["Amount"]" />
-                    </td>
-                    <td>
-                        <label for="Currency" name="Currency">Currency </label>
-                        <select id="currency" name="currencyList" class="a">
-                            <option value="0">RON</option>
-                            <option value="1">EURO</option>
-                            <option value="2">USD</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="details">Details</label></td>
-                    <td>
-                        <input type="text" name="details"
-                               value="@Request.Form["Details"]" />
-                    </td>
-                </tr>
-            </table>
-            <input type="submit" value="Continue" class="submit" />
-            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-            <input type="button" value="Cancel" onclick="window.location = 'http://localhost:51201/Home/Index'" class="cancel_button">
-        </fieldset>
-    </form>
-</div>
+                                           <tr>
+                                               <td>
+                                                   <label for="Ammount">The amount of money </label>
+                                               </td>
+                                               <td>
+                                                   <input type="text" name="amount"
+                                                          value="@Request.Form["Amount"]" />
+                                               </td>
+                                               <td>
+                                                   <label for="Currency" name="Currency">Currency </label>
+                                                   <select id="currency" name="currencyList" class="a">
+                                                       <option value="0">RON</option>
+                                                       <option value="1">EURO</option>
+                                                       <option value="2">USD</option>
+                                                   </select>
+                                               </td>
+                                           </tr>
+                                           <tr>
+                                               <td><label for="details">Details</label></td>
+                                               <td>
+                                                   <input type="text" name="details"
+                                                          value="@Request.Form["Details"]" />
+                                               </td>
+                                           </tr>
+                                       </table>
+                                       <input type="submit" value="Continue" class="submit" />
+                                       &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                       <input type="button" value="Cancel" onclick="window.location = 'http://localhost:51201/Home/Index'" class="cancel_button">
+                                   </fieldset>
+                               </form>
+                           </div>
