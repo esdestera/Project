@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "ConfirmEMail";
+    Layout = "~/Views/Shared/__LayoutNotLogged.cshtml";
+}
+
+<h2>ConfirmEMail</h2>
+
+<form method="get" action="@Url.Action("ConfirmEmail", "Account")">
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Confirm email" class="btn btn-default" />
+        </div>
+    </div>
+
+</form>
+
+

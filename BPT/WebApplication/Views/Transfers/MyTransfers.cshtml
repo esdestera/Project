@@ -1,0 +1,17 @@
+﻿@model WebApplication.Models.MyTransfersViewModel
+
+@{
+    ViewBag.Title = "My transfers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div align="center">
+    @foreach (var item in Model.Transactions)
+    {
+        <br>
+        var trans = string.Format(item.TransactionName + " - " + item.SenderIban + " - " + item.SenderCurrency + " - " + item.ReceiverIban + " - " + item.ReceiverCurrency);
+        @Html.ActionLink(trans, "FilledTransfer", item)
+
+    }
+</div>
+
