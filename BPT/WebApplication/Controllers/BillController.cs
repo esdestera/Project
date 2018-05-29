@@ -49,7 +49,8 @@ namespace WebApplication.Controllers
                     {
                         if (accountSrc.CardLimit < (double)(accountSrc.Balance - (double)model.Amount))
                         {
-                            var transaction = new Transaction((double)model.Amount, "out", accountSrc.AccountId, 0, model.SaveToMyServices, model.Details, model.TransactionName);
+                            var found = db.Accounts.Where(m => m.Iban.Equals(bill.BillIban)).FirstOrDefault();
+                            var transaction = new Transaction((double)model.Amount, "out", accountSrc.AccountId, found.AccountId, model.SaveToMyServices, model.Details, model.TransactionName);
                             accountSrc.Transactions.Add(transaction);
                             accountSrc.Balance -= (double)model.Amount;
                             if (!string.IsNullOrEmpty(model.TransactionName))
@@ -64,17 +65,17 @@ namespace WebApplication.Controllers
                         }
                         else
                         {
-                            return View("Error", model);
+                            return View("ErrorInsufficientFunds");
                         }
                     }
                     else
                     {
-                        return View("Error", model);
+                        return View("ErrorInsufficientFunds");
                     }
                 }
                 else
                 {
-                    return View("Error");
+                    return View("ErrorDestOrSourceAccountNotFound");
                 }
 
             }
