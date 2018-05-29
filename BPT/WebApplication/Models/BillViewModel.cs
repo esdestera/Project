@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -24,7 +24,10 @@ namespace WebApplication.Models
         [Display(Name = "Details")]
         public string Details { get; set; }
 
-        [Display(Name = "Save this transfer to my transfers!")]
-        public bool SaveToMyTransfers { get; set; }
+        [Display(Name = "Save this transfer to my services!")]
+        public bool SaveToMyServices { get; set; }
+
+        [Display(Name = "Transaction name")]
+        public string TransactionName { get; set; }
     }
 }
