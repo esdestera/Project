@@ -185,17 +185,17 @@ namespace WebApplication.Controllers
                         }
                         else
                         {
-                            return View("Error", model);
+                            return View("ErrorInsufficientFunds");
                         }
                     }
                     else
                     {
-                        return View("Error", model);
+                        return View("ErrorInsufficientFunds");
                     }
                 }
                 else
                 {
-                    return View("Error");
+                    return View("ErrorDestOrSourceAccountNotFound");
                 }
                
             }
