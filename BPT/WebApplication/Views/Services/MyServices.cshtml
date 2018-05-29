@@ -8,13 +8,36 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal" align="center">
+<div class="form-horizontal" align="center">
+    <table class="table">
+        <tr>
+            <th>
+                Amount
+            </th>
+            <th>
+                From
+            </th>
+            <th>
+                Currency
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Transaction name
+            </th>
+            <th></th>
+        </tr>
         @foreach (var item in Model.Transactions)
-        {
-            <br>
-            var trans = string.Format(item.Amount + " - " + item.SenderIban + " - " + item.SenderCurrency + " - " + item.Created + " - " + item.TransactionName);
-            @Html.ActionLink(trans, "FilledTransfer", item)
-
-        }
-    </div>
+    {
+        <tr>
+            <td> @Html.DisplayFor(modelItem => item.Amount)</td>
+            <td> @Html.DisplayFor(modelItem => item.SenderIban)</td>
+            <td> @Html.DisplayFor(modelItem => item.SenderCurrency)</td>
+            <td> @Html.DisplayFor(modelItem => item.Created)</td>
+            <td> @Html.DisplayFor(modelItem => item.TransactionName)</td>
+        </tr>
+}
+    </table>
+</div>
 }
