@@ -43,8 +43,14 @@ namespace WebApplication.Controllers
                     var receiver = db.Accounts.Where(m => m.AccountId == transaction.ReceiverId).FirstOrDefault();
                     if(receiver == null)
                     {
-                        transactionInfo.ReceiverIban = "See services";
-                        transactionInfo.ReceiverCurrency = sender.Currency;
+                        var acc = db.Accounts.Where(m => m.UserId.Equals(transaction.ReceiverId.ToString())).FirstOrDefault();
+                        //foreach (var tr in trs)
+                        //{
+                        //    transactions.Add(tr);
+
+                        //}
+                        transactionInfo.ReceiverIban = acc.Iban;
+                        transactionInfo.ReceiverCurrency = acc.Currency;
                     }
                     else
                     {
