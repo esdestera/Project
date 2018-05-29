@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using WebApplication.Models;
@@ -22,8 +22,14 @@ namespace WebApplication.Controllers
 
                 foreach (var account in accounts)
                 {
-                    transactions.AddRange(db.Transactions.Where(m => m.ReceiverId == account.AccountId).ToList());
-                    transactions.AddRange(db.Transactions.Where(m => m.SenderId == account.AccountId && account.UserId != user.Id).ToList());
+                    var trs = db.Transactions.Where(m => m.ReceiverId == account.AccountId || m.SenderId == account.AccountId).ToList();
+                    foreach (var tr in trs)
+                    {
+                        transactions.Add(tr);
+
+                    }
+                   // transactions.AddRange(db.Transactions.Where(m => m.ReceiverId == account.AccountId).ToList());
+                    //transactions.AddRange(db.Transactions.Where(m => m.SenderId == account.AccountId && account.UserId != user.Id).ToList());
                 }
 
                 
@@ -35,10 +41,18 @@ namespace WebApplication.Controllers
                     transactionInfo.Details = transaction.Details;
                     var sender = db.Accounts.Where(m => m.AccountId == transaction.SenderId).FirstOrDefault();
                     var receiver = db.Accounts.Where(m => m.AccountId == transaction.ReceiverId).FirstOrDefault();
-                    transactionInfo.ReceiverIban = receiver.Iban;
+                    if(receiver == null)
+                    {
+                        transactionInfo.ReceiverIban = "See services";
+                        transactionInfo.ReceiverCurrency = sender.Currency;
+                    }
+                    else
+                    {
+                        transactionInfo.ReceiverIban = receiver.Iban;
+                        transactionInfo.ReceiverCurrency = receiver.Currency;
+                    }
                     transactionInfo.SenderIban = sender.Iban;
                     transactionInfo.SenderCurrency = sender.Currency;
-                    transactionInfo.ReceiverCurrency = receiver.Currency;
                     if(sender.UserId == user.Id)
                     {
                         transactionInfo.Type = "out";
