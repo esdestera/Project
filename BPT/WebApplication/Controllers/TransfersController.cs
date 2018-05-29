@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
@@ -45,15 +45,20 @@ namespace WebApplication.Controllers
                         {
                             if (transaction.SaveToMyTransfers == true)
                             {
-                                var transactionInfo = new TransactionInfoViewModel();
-                                transactionInfo.TransactionName = transaction.TransactionName;
-                                transactionInfo.SenderIban = account.Iban;
+       
                                 var receiver = db.Accounts.Where(m => m.AccountId == transaction.ReceiverId).FirstOrDefault();
-                                transactionInfo.ReceiverIban = receiver.Iban;
-                                transactionInfo.ReceiverCurrency = receiver.Currency;
-                                transactionInfo.SenderCurrency = account.Currency;
-                                transactionInfo.TransactionId = transaction.TransactionId;
-                                model.Transactions.Add(transactionInfo);
+                                if (receiver != null)
+                                {
+                                    var transactionInfo = new TransactionInfoViewModel();
+                                    transactionInfo.TransactionName = transaction.TransactionName;
+                                    transactionInfo.SenderIban = account.Iban;
+                                    transactionInfo.ReceiverIban = receiver.Iban;
+                                    transactionInfo.ReceiverCurrency = receiver.Currency;
+                                    transactionInfo.SenderCurrency = account.Currency;
+                                    transactionInfo.TransactionId = transaction.TransactionId;
+                                    model.Transactions.Add(transactionInfo);
+                                }
+                                
                             }
                         }
                     }
