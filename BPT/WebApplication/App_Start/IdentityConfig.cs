@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Configuration;
+using System.Linq;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Security.Claims;
@@ -112,6 +113,51 @@ public class SmsService : IIdentityMessageService
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
             var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
+
+            var billContext = new ApplicationDbContext();
+
+            var bill1 = billContext.Bills.Where(m => m.Name.Equals("CEZ RO")).FirstOrDefault();
+            var bill2 = billContext.Bills.Where(m => m.Name.Equals("Telekom - Romania")).FirstOrDefault();
+            var bill3 = billContext.Bills.Where(m => m.Name.Equals("TelekomMobile - Romania")).FirstOrDefault();
+            var bill4 = billContext.Bills.Where(m => m.Name.Equals(" Compania de Apa Oltenia S.A.")).FirstOrDefault();
+
+            var tax1 = billContext.Taxes.Where(m => m.Name.Equals("CEZ RO")).FirstOrDefault();
+            var tax2 = billContext.Taxes.Where(m => m.Name.Equals("Telekom - Romania")).FirstOrDefault();
+            var tax3 = billContext.Taxes.Where(m => m.Name.Equals("TelekomMobile - Romania")).FirstOrDefault();
+
+
+            if (bill1 == null && bill2 == null && bill3 == null && bill4 == null && tax1 == null && tax2 == null && tax3 ==null)
+            {
+                //var electricityBillAccount = new Account("RO49 AAAA 1B31 0075 9384 0000", "RON");
+                //var phoneBillAccount = new Account("RO93 BTKN 4639 6698 8182 8361", "RON");
+                //var mobileBillAccount = new Account("RO64 UBOZ 7631 1825 5787 9219", "RON");
+                //var waterBillAccount = new Account("RO51 BMZV 4588 1913 5346 3349", "RON");
+
+                var b1 = new Bill("CEZ RO", "RO49 AAAA 1B31 0075 9384 0000");
+                var b2 = new Bill("Telekom - Romania", "RO93 BTKN 4639 6698 8182 8361");
+                var b3 = new Bill("TelekomMobile - Romania", "RO64 UBOZ 7631 1825 5787 9219");
+                var b4 = new Bill(" Compania de Apa Oltenia S.A.", "RO51 BMZV 4588 1913 5346 3349");
+
+                var t1 = new Tax("Sanitation", "RO14 JLFB 9551 9253 3416 3469");
+                var t2 = new Tax("Parking", "RO81 QBBE 5290 4709 8563 6122");
+                var t3 = new Tax("Rent", "RO11 VYHO 3215 2715 6144 9480");
+
+                //billContext.Accounts.Add(electricityBillAccount);
+                //billContext.Accounts.Add(phoneBillAccount);
+                //billContext.Accounts.Add(mobileBillAccount);
+                //billContext.Accounts.Add(waterBillAccount);
+
+                billContext.Bills.Add(b1);
+                billContext.Bills.Add(b2);
+                billContext.Bills.Add(b3);
+                billContext.Bills.Add(b4);
+
+                billContext.Taxes.Add(t1);
+                billContext.Taxes.Add(t2);
+                billContext.Taxes.Add(t3);
+
+                billContext.SaveChanges();
+            }
 
             var adminUser = manager.FindByName("admin@admin.com");
             if (adminUser == null)
