@@ -37,9 +37,18 @@ namespace WebApplication.Controllers
                                 transactionInfo.SenderIban = account.Iban;
                                 transactionInfo.Amount = transaction.Amount;
                                 transactionInfo.Created = transaction.Created;
-                                //var receiver = db.Accounts.Where(m => m.AccountId == transaction.ReceiverId).FirstOrDefault();
-                                //transactionInfo.ReceiverIban = receiver.Iban;
-                                //transactionInfo.ReceiverCurrency = receiver.Currency;
+                                var receiver = db.Accounts.Where(m => m.AccountId == transaction.ReceiverId).FirstOrDefault();
+                                if (receiver == null)
+                                {
+                                    var acc = db.Accounts.Where(m => m.UserId.Equals(transaction.ReceiverId.ToString())).FirstOrDefault();
+                                    transactionInfo.ReceiverIban = acc.Iban;
+                                    transactionInfo.ReceiverCurrency = acc.Currency;
+                                }
+                                else
+                                {
+                                    transactionInfo.ReceiverIban = receiver.Iban;
+                                    transactionInfo.ReceiverCurrency = receiver.Currency;
+                                }
                                 transactionInfo.SenderCurrency = account.Currency;
                                 transactionInfo.TransactionId = transaction.TransactionId;
                                 model.Transactions.Add(transactionInfo);
