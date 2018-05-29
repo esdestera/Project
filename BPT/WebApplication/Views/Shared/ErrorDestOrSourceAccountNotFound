@@ -1,0 +1,9 @@
+@model HandleErrorInfo
+@{
+    //ViewBag.Title = "ErrorDestOrSourceAccountNotFound";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 class="text-danger">Operation failed.</h2>
+<h2 class="text-danger">Destination account does not exist.</h2>
+
+
