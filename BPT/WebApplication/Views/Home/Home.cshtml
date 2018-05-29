@@ -1,4 +1,4 @@
-﻿@using System.Linq;
+@using System.Linq;
 @using WebApplication.Models;
 @model WebApplication.Models.Account
 @{
@@ -50,15 +50,19 @@
             </td>
             <td>
                 <p>
-                    Available Balances:
+                    Available Balances
                 </p>
-            
-                @foreach(var account in accounts)
-                {
-                    
-                    <p>@account.Currency - @account.Iban - @account.Balance.ToString("0.00")</p>
-                       
-                }
+                <table class="table">
+                    @foreach (var account in accounts)
+    {
+                <tr>
+                    <td>@account.Currency</td>
+                    <td>@account.Iban</td>
+                    <td>@account.Balance.ToString("0.00")</td>
+                </tr>
+
+}
+                </table>
             </td>
         </tr>
     </table>
